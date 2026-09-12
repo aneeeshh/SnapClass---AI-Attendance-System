@@ -1,376 +1,234 @@
-# \# 📚 SnapClass - AI Attendance System
+# 📚 SnapClass - AI Attendance System
 
-# 
+An AI-powered attendance management system that automates student attendance using **Face Recognition** and **Voice Recognition**.
 
-# SnapClass is an AI-powered attendance management system that automates student attendance using Face Recognition and Voice Recognition. The system allows teachers to create subjects, enroll students, capture classroom photos, and automatically mark attendance. Students can also register and access their enrolled subjects through a dedicated student portal.
+SnapClass allows teachers to create subjects, enroll students, capture classroom photos, and automatically mark attendance. Students can register, enroll in subjects, and view their attendance records through a dedicated portal.
 
-# 
+---
 
-# \## ✨ Features
+## ✨ Features
 
-# 
+- 🤖 AI-based Face Recognition
+- 👥 Multiple face detection from classroom photos
+- 🎙️ Voice-based attendance
+- 👨‍🏫 Teacher registration and login
+- 🧑‍🎓 Student registration using Face ID
+- 📚 Create and manage subjects
+- 📝 Student enrollment in subjects
+- 📊 Attendance records and statistics
+- ☁️ Supabase database integration
+- 🔐 Password hashing using bcrypt
+- 🖥️ Interactive Streamlit interface
 
-# \- 🤖 AI-based Face Recognition for attendance
+---
 
-# \- 👥 Detects multiple faces from classroom photos
+## 🛠️ Tech Stack
 
-# \- 🎙️ Voice-based attendance option
+| Category | Technologies |
+|---|---|
+| 🐍 Programming Language | Python |
+| 🎈 Framework | Streamlit |
+| 👁️ Computer Vision | OpenCV, face_recognition |
+| 🔢 Data Processing | NumPy, Pandas |
+| 🧠 Machine Learning | Scikit-learn |
+| 🎙️ Voice Processing | Librosa, Resemblyzer |
+| ☁️ Database | Supabase |
+| 🔐 Authentication | bcrypt |
 
-# \- 🔐 Teacher registration and login
+---
+
+## 🚀 How It Works
 
-# \- 🧑‍🎓 Student registration using Face ID
+### 👨‍🏫 Teacher Portal
 
-# \- 📚 Create and manage subjects
+1. Teacher creates an account and logs in.
+2. Teacher creates a subject with subject code and section.
+3. Students enroll in the subject.
+4. Teacher uploads classroom photos.
+5. The system detects and recognizes student faces.
+6. Attendance is automatically marked as **Present or Absent**.
+7. Teacher can view attendance records and statistics.
 
-# \- 📝 Enroll students into subjects
+### 🧑‍🎓 Student Portal
 
-# \- 📊 View attendance records and statistics
+1. Student opens the Student Portal.
+2. A face image is captured using the camera.
+3. The system recognizes the student's face.
+4. New students can register using their face.
+5. Students can enroll in available subjects.
+6. Students can view their attendance statistics.
 
-# \- ☁️ Supabase database integration
+---
 
-# \- 🔒 Password hashing using bcrypt
+## 👁️ Face Recognition
 
-# \- 🖥️ Interactive Streamlit interface
+SnapClass uses facial embeddings to represent student faces numerically.
 
-# 
+### 🔄 Attendance Process
 
-# \## 🛠️ Technologies Used
+**Image → Face Detection → Face Encoding → Face Matching → Student Identification → Attendance**
 
-# 
+The system can detect multiple faces from a classroom image and identify registered students.
 
-# \- 🐍 Python
+---
 
-# \- 🎈 Streamlit
+## 🎙️ Voice Attendance
 
-# \- 👁️ OpenCV
+SnapClass also provides a voice-based attendance option.
 
-# \- 🧠 face\_recognition
+During registration, students can provide a short voice sample. The system generates a voice embedding using **Resemblyzer**, which can later be used for voice-based attendance.
 
-# \- 🔢 NumPy
+### 🔄 Voice Attendance Process
 
-# \- 🐼 Pandas
+**Voice Sample → Voice Embedding → Voice Matching → Student Identification → Attendance**
 
-# \- 📈 Scikit-learn
+---
 
-# \- 🎵 Librosa
+## ☁️ Database
 
-# \- 🎙️ Resemblyzer
+SnapClass uses **Supabase** for storing application data.
 
-# \- ☁️ Supabase
+### 📋 Main Database Tables
 
-# \- 🔐 bcrypt
+- `teachers`
+- `students`
+- `subjects`
+- `subject_students`
+- `attendance_logs`
 
-# 
+---
 
-# \## 🚀 How It Works
+## 📁 Project Structure
+
+```text
+SnapClass---AI-Attendance-System/
+│
+├── src/
+│   ├── components/
+│   │   ├── dialog_add_photo.py
+│   │   ├── dialog_attendance_results.py
+│   │   ├── dialog_auto_enroll.py
+│   │   ├── dialog_create_subject.py
+│   │   ├── dialog_enroll.py
+│   │   ├── dialog_share_subject.py
+│   │   ├── dialog_voice_attendance.py
+│   │   ├── header.py
+│   │   └── subject_card.py
+│   │
+│   ├── database/
+│   │   ├── config.py
+│   │   └── db.py
+│   │
+│   ├── pipelines/
+│   │   ├── face_pipeline.py
+│   │   └── voice_pipeline.py
+│   │
+│   ├── screens/
+│   │   ├── home_screen.py
+│   │   ├── student_screen.py
+│   │   └── teacher_screen.py
+│   │
+│   └── ui/
+│       └── base_layout.py
+│
+├── app.py
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
 
-# 
+---
 
-# \### 👨‍🏫 Teacher Portal
+## ⚙️ Installation
 
-# 
+### 1️⃣ Clone the Repository
 
-# 1\. Teacher creates an account and logs in.
+```bash
+git clone https://github.com/aneeeshh/SnapClass---AI-Attendance-System.git
+cd SnapClass---AI-Attendance-System
+```
 
-# 2\. Teacher creates a subject with subject code and section.
+### 2️⃣ Create a Virtual Environment
 
-# 3\. Students enroll in the subject.
+```bash
+python -m venv venv
+```
 
-# 4\. Teacher uploads classroom photos.
+### 3️⃣ Activate the Virtual Environment
 
-# 5\. The system detects and recognizes student faces.
+**Windows:**
 
-# 6\. Attendance is automatically marked as Present or Absent.
+```bash
+venv\Scripts\activate
+```
 
-# 7\. Teacher can view attendance records and statistics.
+### 4️⃣ Install Dependencies
 
-# 
+```bash
+pip install -r requirements.txt
+```
 
-# \### 🧑‍🎓 Student Portal
+> ⚠️ Some face and voice recognition dependencies may require additional setup depending on your Python version and operating system.
 
-# 
+---
 
-# 1\. Student opens the Student Portal.
+## 🔑 Supabase Configuration
 
-# 2\. A face image is captured using the camera.
+Create the following file:
 
-# 3\. The system recognizes the student's face.
+```text
+.streamlit/secrets.toml
+```
 
-# 4\. New students can register using their face.
+Add your Supabase credentials:
 
-# 5\. Students can enroll in available subjects.
+```toml
+SUPABASE_URL = "your_supabase_project_url"
+SUPABASE_KEY = "your_supabase_key"
+```
 
-# 6\. Students can view their attendance statistics.
+> 🔒 **Never upload `secrets.toml` or your Supabase credentials to GitHub.**
 
-# 
+---
 
-# \## 👁️ Face Recognition
+## ▶️ Run the Application
 
-# 
+Start the Streamlit application:
 
-# The system uses facial embeddings to represent student faces numerically.
+```bash
+streamlit run app.py
+```
 
-# 
+The application will be available at:
 
-# During attendance:
+```text
+http://localhost:8501
+```
 
-# 
+---
 
-# 1\. 🔍 Faces are detected from the input image.
+## 🔮 Future Improvements
 
-# 2\. 🧠 Facial embeddings are generated.
+- 🎯 Improve face recognition accuracy
+- 🎙️ Improve voice recognition reliability
+- 📥 Export attendance to CSV/Excel
+- 📧 Add email notifications
+- 🔐 Improve authentication and authorization
+- ☁️ Deploy the application to the cloud
+- 🛡️ Enable database Row Level Security (RLS)
+- 📊 Add advanced attendance analytics
 
-# 3\. 🔄 The embeddings are compared with registered student data.
+---
 
-# 4\. ✅ Recognized students are identified using the trained classifier.
+## 👨‍💻 Author
 
-# 5\. 📊 Attendance is recorded in the database.
+**Anish Mishra**
 
-# 
+🎓 B.Tech Computer Science & Engineering  
+🤖 Aspiring Data Analyst & AI/ML Engineer
 
-# \## 🎙️ Voice Attendance
+---
 
-# 
+## 📄 License
 
-# SnapClass also provides a voice-based attendance option.
-
-# 
-
-# Students can provide a short voice sample during registration. The system generates a voice embedding using Resemblyzer and uses it for voice-based attendance.
-
-# 
-
-# \## ☁️ Database
-
-# 
-
-# The application uses Supabase as the backend database.
-
-# 
-
-# \### Main Database Tables
-
-# 
-
-# \- `teachers`
-
-# \- `students`
-
-# \- `subjects`
-
-# \- `subject\_students`
-
-# \- `attendance\_logs`
-
-# 
-
-# \## 📁 Project Structure
-
-# 
-
-# &#x20;   SnapClass---AI-Attendance-System/
-
-# &#x20;   │
-
-# &#x20;   ├── src/
-
-# &#x20;   │   ├── components/
-
-# &#x20;   │   │   ├── dialog\_add\_photo.py
-
-# &#x20;   │   │   ├── dialog\_attendance\_results.py
-
-# &#x20;   │   │   ├── dialog\_auto\_enroll.py
-
-# &#x20;   │   │   ├── dialog\_create\_subject.py
-
-# &#x20;   │   │   ├── dialog\_enroll.py
-
-# &#x20;   │   │   ├── dialog\_share\_subject.py
-
-# &#x20;   │   │   ├── dialog\_voice\_attendance.py
-
-# &#x20;   │   │   ├── header.py
-
-# &#x20;   │   │   └── subject\_card.py
-
-# &#x20;   │   │
-
-# &#x20;   │   ├── database/
-
-# &#x20;   │   │   ├── config.py
-
-# &#x20;   │   │   └── db.py
-
-# &#x20;   │   │
-
-# &#x20;   │   ├── pipelines/
-
-# &#x20;   │   │   ├── face\_pipeline.py
-
-# &#x20;   │   │   └── voice\_pipeline.py
-
-# &#x20;   │   │
-
-# &#x20;   │   ├── screens/
-
-# &#x20;   │   │   ├── home\_screen.py
-
-# &#x20;   │   │   ├── student\_screen.py
-
-# &#x20;   │   │   └── teacher\_screen.py
-
-# &#x20;   │   │
-
-# &#x20;   │   └── ui/
-
-# &#x20;   │       └── base\_layout.py
-
-# &#x20;   │
-
-# &#x20;   ├── app.py
-
-# &#x20;   ├── requirements.txt
-
-# &#x20;   ├── .gitignore
-
-# &#x20;   └── README.md
-
-# 
-
-# \## ⚙️ Installation
-
-# 
-
-# \### 1. Clone the Repository
-
-# 
-
-# &#x20;   git clone https://github.com/aneeeshh/SnapClass---AI-Attendance-System.git
-
-# &#x20;   cd SnapClass---AI-Attendance-System
-
-# 
-
-# \### 2. Create a Virtual Environment
-
-# 
-
-# &#x20;   python -m venv venv
-
-# 
-
-# \### 3. Activate the Virtual Environment
-
-# 
-
-# On Windows:
-
-# 
-
-# &#x20;   venv\\Scripts\\activate
-
-# 
-
-# \### 4. Install Dependencies
-
-# 
-
-# &#x20;   pip install -r requirements.txt
-
-# 
-
-# > ⚠️ Note: Some face and voice recognition dependencies may require additional setup depending on the Python version and operating system.
-
-# 
-
-# \## 🔑 Supabase Configuration
-
-# 
-
-# Create the following file:
-
-# 
-
-# &#x20;   .streamlit/secrets.toml
-
-# 
-
-# Add your Supabase credentials:
-
-# 
-
-# &#x20;   SUPABASE\_URL = "your\_supabase\_project\_url"
-
-# &#x20;   SUPABASE\_KEY = "your\_supabase\_key"
-
-# 
-
-# > 🔒 Do not upload the `secrets.toml` file to GitHub.
-
-# 
-
-# \## ▶️ Run the Application
-
-# 
-
-# Start the Streamlit application:
-
-# 
-
-# &#x20;   streamlit run app.py
-
-# 
-
-# The application will open at:
-
-# 
-
-# &#x20;   http://localhost:8501
-
-# 
-
-# \## 🔮 Future Improvements
-
-# 
-
-# \- 🎯 Improve face recognition accuracy
-
-# \- 🎙️ Improve voice recognition reliability
-
-# \- 📥 Add attendance export to CSV/Excel
-
-# \- 📧 Add email notifications for attendance
-
-# \- 🔐 Add better authentication and authorization
-
-# \- ☁️ Deploy the application to the cloud
-
-# \- 🛡️ Enable database Row Level Security (RLS)
-
-# \- 📊 Add advanced attendance analytics
-
-# 
-
-# \## 👨‍💻 Author
-
-# 
-
-# \*\*Anish Mishra\*\*
-
-# 
-
-# B.Tech Computer Science \& Engineering  
-
-# Aspiring Data Analyst \& AI/ML Engineer
-
-# 
-
-# \## 📄 License
-
-# 
-
-# This project is for educational and portfolio purposes.
-
-
-
+This project is developed for **educational and portfolio purposes**.
